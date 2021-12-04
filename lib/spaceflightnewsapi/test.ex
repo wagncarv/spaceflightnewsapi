@@ -12,33 +12,50 @@ defmodule Test do
     alias Spaceflightnewsapi.Helpers.Helper
 
     def test do
-    value =  %{
-    "id" => 0,
-    "featured" => false,
-    "title" => "titulo",
-    "url" => "http://www.url.com.br",
-    "imageUrl" => "http://www.url.com.br/images/icon.png",
-    "newsSite" => "http://www.url.com.br",
-    "summary" => "mensagem",
-    "publishedAt" => "string",
-    "launches" => [
-      %{
-        "id" => 123,
-        "provider" => "provider launch"
+      params = %{
+        "events" => [%{"id" => 7, "provider" => " event event"}],
+        "featured" => true,
+        "id" => "14",
+        "image_url" => "http://www.url.com.br/images/icon.png",
+        "launches" => [%{"id" => 10, "provider" => "provider launch launch 2"}],
+        "news_site" => "http://www.url.com.br",
+        "published_at" => "2021-12-04T22:56:18Z",
+        "summary" => "Nova mensagem",
+        "title" => "Novo titulo",
+        "url" => "http://www.url.com.br"
       }
-    ],
-    "events" => [
-      %{
-        "id" => 12,
-        "provider" => "provider event"
-      }
-    ]
-  }
 
-  Helper.format_keys(value)
-#   Helper.format("imageUrl")
-# pattern = Regex.run(~r/[A-Z]/, "imageurl")
-# |> List.first() |> IO.inspect(label: "RESULT")
+      article = %Article{
+        __meta__: "",
+        events: [
+          %Spaceflightnewsapi.Event{
+            __meta__: "#Ecto.Schema.Metadata<:loaded, events",
+            article: "Ecto.Association.NotLoaded<association :article is not loaded>,
+            article_id: 14,
+            id: 6,
+            provider: " event event"
+          }
+        ],
+        featured: true,
+        id: 14,
+        image_url: "http",
+        inserted_at: ~N[2021-12-04 21:45:11],
+        launches: [
+          %Spaceflightnewsapi.Launch{
+            __meta__: #Ecto.Schema.Metadata<:loaded, "launches">,
+            article: #Ecto.Association.NotLoaded<association :article is not loaded>,
+            article_id: 14,
+            id: 10,
+            provider: "provider launch launch 2"
+          }
+        ],
+        news_site: "",
+        published_at: ~U[2021-12-04 23:09:29Z],
+        summary: "Nova mensagem",
+        title: "Novo titulo",
+        updated_at: ~N[2021-12-04 23:09:29],
+        url: "htt"
+      }
 
 
 

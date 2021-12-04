@@ -4,8 +4,7 @@ defmodule SpaceflightnewsapiWeb.FallbackController do
     alias Spaceflightnewsapi.Error
     alias SpaceflightnewsapiWeb.ErrorView
 
-    def call(conn, {:error, %Error{status: _status, result: result} = value}) do
-      IO.inspect(value, label: "VALUE ====")
+    def call(conn, {:error, %Error{status: _status, result: result}}) do
       conn
       |> put_status(:not_found)
       |> put_view(ErrorView)

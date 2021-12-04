@@ -4,16 +4,16 @@ defmodule Spaceflightnewsapi.Launch do
 
     alias Spaceflightnewsapi.Article
 
-    @fields [:provider, :article_id]
-    @derive {Jason.Encoder, only: [:provider]}
+    @fields [:id, :provider, :article_id]
+    @derive {Jason.Encoder, only: [:id, :provider]}
 
     schema "launches" do
         field :provider, :string
-        belongs_to :article, Article
+        belongs_to :article, Article, on_replace: :update
     end
 
-    def changeset(params) do
-        %__MODULE__{}
+    def changeset(struct \\ %__MODULE__{}, params) do
+        struct
         |> cast(params, @fields)
     end
 end

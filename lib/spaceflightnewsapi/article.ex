@@ -6,7 +6,7 @@ defmodule Spaceflightnewsapi.Article do
 
     @fields [:featured, :title, :url, :image_url, :news_site, :summary, :published_at]
 
-    @derive {Jason.Encoder, only: @fields ++ [:launches, :events]}
+    @derive {Jason.Encoder, only: @fields ++ [:id, :events, :launches]}
 
     schema "articles" do
         field :featured, :boolean
@@ -25,6 +25,17 @@ defmodule Spaceflightnewsapi.Article do
 
     def changeset(struct \\ %__MODULE__{}, params) do
         struct
-        |> cast(params, @fields)
+        |> cast(put_change(params), @fields)
+        |> cast_assoc(:events) #TODO
+        |> cast_assoc(:launches) #TODO
+    end
+
+    defp put_change(params) do
+        date = DateTime.utc_now()
+        |> DateTime.truncate(:second)
+        case Map.has_key?(params, "published_at") do
+            true -> Map.put(params, "published_at", date)
+            false -> Map.put_new(params, "published_at", date)
+        end
     end
 end

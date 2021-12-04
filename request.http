@@ -2,11 +2,40 @@ GET http://localhost:4000/api/articles
 
 ###
 
-GET http://localhost:4000/api/articles/1
+GET http://localhost:4000/api/articles/14
 
 ###
 
-DELETE http://localhost:4000/api/articles/2
+DELETE http://localhost:4000/api/articles/15
+
+###
+
+PUT http://localhost:4000/api/articles/14
+content-type: application/json
+
+{
+  "featured": true,
+  "title": "Novo titulo",
+  "url": "http://www.url.com.br",
+  "image_url": "http://www.url.com.br/images/icon.png",
+  "news_site": "http://www.url.com.br",
+  "summary": "Nova mensagem",
+  "published_at": "2021-12-04T22:56:18Z",
+  "id": 14,
+  "events": [
+    {
+      "id": 7,
+      "provider": " event event"
+    }
+  ],
+  "launches": [
+    {
+      "id": 10,
+      "provider": "provider launch launch 2"
+    }
+  ]
+}
+
 
 ###
 
@@ -16,12 +45,11 @@ content-type: application/json
 {
     "id": 0,
     "featured": false,
-    "title": "titulo",
+    "title": "Novo novo titulo",
     "url": "http://www.url.com.br",
-    "imageUrl": "http://www.url.com.br/images/icon.png",
-    "newsSite": "http://www.url.com.br",
+    "image_url": "http://www.url.com.br/images/icon.png",
+    "news_site": "http://www.url.com.br",
     "summary": "mensagem",
-    "publishedAt": "string",
     "launches": [
       {
         "id": 123,

@@ -10,6 +10,13 @@ defmodule SpaceflightnewsapiWeb.ArticlesView do
       }
     end
 
+    def render("create.json", %{article: %Article{} = article}) do
+      %{
+        message: "Article created",
+        article: article
+      }
+    end
+
     def render("articles.json", %{articles: articles}), do: %{articles: articles}
 
     def render("article.json", %{article: article}), do: %{article: article}

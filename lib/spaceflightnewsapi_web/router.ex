@@ -1,5 +1,7 @@
 defmodule SpaceflightnewsapiWeb.Router do
   use SpaceflightnewsapiWeb, :router
+  use Plug.ErrorHandler
+  alias SpaceflightnewsapiWeb.Plugs.JasonChecker
 
   pipeline :api do
     plug :accepts, ["json"]

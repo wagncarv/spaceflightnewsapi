@@ -39,6 +39,10 @@ defmodule SpaceflightnewsapiWeb.ArticlesController  do
     end
 
     def update(conn, params) do
-
+        with {:ok, %Article{} = article} <- Spaceflightnewsapi.update_article(params) do
+            conn
+            |> put_status(:ok)
+            |> render("article.json", article: article)
+        end
     end
 end
