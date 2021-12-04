@@ -4,10 +4,10 @@ defmodule Spaceflightnewsapi.Repo.Migrations.ArticlesTable do
   def change do
     create table(:articles) do
       add :featured, :boolean
-      add :title, :text
-      add :url, :text
-      add :image_url, :text
-      add :news_site, :text
+      add :title, :string
+      add :url, :string
+      add :image_url, :string
+      add :news_site, :string
       add :summary, :text
       add :published_at, :utc_datetime
       timestamps()

@@ -1,17 +1,13 @@
 defmodule Spaceflightnewsapi.Articles.Create do
     use Ecto.Schema
-    alias Spaceflightnewsapi.Repo
+    alias Spaceflightnewsapi.{Article, Repo}
 
     def call(params) do
-        IO.inspect(params)
-        Repo.transaction fn ->
-        article = Repo.insert!(params) |> IO.inspect(label: "POST ==")
-
-        # Ecto.build_assoc(article, :events, params.events)
-        # |> Repo.insert!()
-
-        # Ecto.build_assoc(article, :launches, params.launches)
-        # |> Repo.insert!()
-        end
+        params
+        |> Article.changeset()
+        |> Repo.insert()
+        # |> handle_insert()
     end
+
+    # defp handle_insert({:ok, %Article{}} = result), do: result
 end

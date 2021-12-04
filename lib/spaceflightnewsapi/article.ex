@@ -6,7 +6,7 @@ defmodule Spaceflightnewsapi.Article do
 
     @fields [:featured, :title, :url, :image_url, :news_site, :summary, :published_at]
 
-    @derive {Jason.Encoder, only: @fields}
+    @derive {Jason.Encoder, only: @fields ++ [:launches, :events]}
 
     schema "articles" do
         field :featured, :boolean
@@ -23,8 +23,8 @@ defmodule Spaceflightnewsapi.Article do
         timestamps()
     end
 
-    def changeset(params) do
-        %__MODULE__{}
+    def changeset(struct \\ %__MODULE__{}, params) do
+        struct
         |> cast(params, @fields)
     end
 end

@@ -1,10 +1,11 @@
 defmodule Spaceflightnewsapi.Routines.Routine do
     use Ecto.Schema
     alias Spaceflightnewsapi.Client.Client
+    alias Spaceflightnewsapi.Helpers.Helper
     alias Spaceflightnewsapi.{Article, Error, Repo, Response}
 
     def load_data do
-        Client.get_all() |> IO.inspect()
+        Client.get_all()
         |> handle_response()
     end
 
@@ -31,7 +32,8 @@ defmodule Spaceflightnewsapi.Routines.Routine do
     defp handle_response({:ok, %Response{result: result, status: 200}}) do
         result
         |> Task.async_stream(fn article ->
-            load(article)
+            Helper.format_keys(article)
+            |> load()
         end)
         |> Enum.to_list()
     end

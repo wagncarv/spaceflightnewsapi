@@ -7,6 +7,14 @@ defmodule SpaceflightnewsapiWeb.Router do
 
   scope "/api", SpaceflightnewsapiWeb do
     pipe_through :api
+
+    get "/", WelcomeController, :welcome
+
+    post "/articles", ArticlesController, :create
+    get "/articles/:id", ArticlesController, :show
+    get "/articles", ArticlesController, :show_all
+    delete "/articles/:id", ArticlesController, :delete
+    put "/articles/:id", ArticlesController, :update
   end
 
   # Enables LiveDashboard only for development
@@ -22,6 +30,7 @@ defmodule SpaceflightnewsapiWeb.Router do
     scope "/" do
       pipe_through [:fetch_session, :protect_from_forgery]
       live_dashboard "/dashboard", metrics: SpaceflightnewsapiWeb.Telemetry
+
     end
   end
 
