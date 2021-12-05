@@ -41,11 +41,25 @@ config :esbuild,
 
 # Configures Elixir's Logger
 config :logger, :console,
+  level: :debug,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# quantum Scheduler
+config :spaceflightnewsapi,Spaceflightnewsapi.Scheduler.JobScheduler,
+  jobs: [
+    {"0 9 * * *",
+    {Spaceflightnewsapi.Routines.Routine, :load_data, []}
+    },
+
+    # Test CRON
+    # {"* * * * *",
+    #   {Spaceflightnewsapi.Routines.Routine, :load_data, []}
+    # }
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

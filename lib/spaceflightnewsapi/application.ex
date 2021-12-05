@@ -15,9 +15,11 @@ defmodule Spaceflightnewsapi.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Spaceflightnewsapi.PubSub},
       # Start the Endpoint (http/https)
-      SpaceflightnewsapiWeb.Endpoint
+      SpaceflightnewsapiWeb.Endpoint,
       # Start a worker by calling: Spaceflightnewsapi.Worker.start_link(arg)
       # {Spaceflightnewsapi.Worker, arg}
+      # Scheduler
+      Spaceflightnewsapi.Scheduler.JobScheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
