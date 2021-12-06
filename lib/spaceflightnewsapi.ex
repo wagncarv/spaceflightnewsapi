@@ -8,6 +8,6 @@ defmodule Spaceflightnewsapi do
   defdelegate create_article(params) , to: ArticleCreate, as: :call
   defdelegate delete_article(id) , to: ArticleDelete, as: :call
   defdelegate find_by_id(id), to: ArticleGet, as: :by_id
-  defdelegate show_all, to: ArticleShowAll, as: :call
+  defdelegate show_all(params), to: ArticleShowAll, as: :call
   defdelegate update_article(params) , to: ArticleUpdate, as: :call
 end

@@ -49,7 +49,8 @@ defmodule Spaceflightnewsapi.MixProject do
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
       {:quantum, "~> 3.4"},
-      {:ex_machina, "~> 2.7.0"}
+      {:ex_machina, "~> 2.7.0"},
+      {:scrivener_ecto, "~> 2.0"}
     ]
   end
 
