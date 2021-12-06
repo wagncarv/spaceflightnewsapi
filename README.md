@@ -119,7 +119,8 @@ json ```
 }``` 
 ## ⚙️🔩  Executando os testes
 
-Explicar como executar os testes automatizados para este sistema.
+Para executar os testes, inserir o comando
+`mix test`
 
 ### Link de apresentação do projeto
 

@@ -68,7 +68,7 @@ defmodule SpaceflightnewsapiWeb.ArticlesControllerTest  do
 
     describe "show/2" do
         test "When id does not exist, returns error", %{conn: conn} do
-            id = 1
+            id = 1000
             response =
             conn
             |> get(Routes.articles_path(conn, :show, id))
