@@ -7,7 +7,7 @@ defmodule SpaceflightnewsapiWeb.ArticlesController  do
     action_fallback FallbackController
 
     def create(conn, params) do
-        with article <- Spaceflightnewsapi.create_article(params) do
+        with %Article{} = article <- Spaceflightnewsapi.create_article(params) do
             conn
             |> put_status(:created)
             |> render("create.json", article: article)

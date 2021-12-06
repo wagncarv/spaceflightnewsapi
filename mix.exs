@@ -48,7 +48,8 @@ defmodule Spaceflightnewsapi.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
-      {:quantum, "~> 3.4"}
+      {:quantum, "~> 3.4"},
+      {:ex_machina, "~> 2.7.0"}
     ]
   end
 

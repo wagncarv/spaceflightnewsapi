@@ -1,5 +1,7 @@
 defmodule Spaceflightnewsapi.Helpers.Helper do
-    
+
+    def encode_list(list), do: Jason.encode!(list)
+
     def format_keys(value) do
         value
         |> Enum.to_list()

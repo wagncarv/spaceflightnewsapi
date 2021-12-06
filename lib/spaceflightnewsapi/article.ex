@@ -4,8 +4,8 @@ defmodule Spaceflightnewsapi.Article do
 
     alias Spaceflightnewsapi.{Event, Launch}
 
+    @required [:title, :summary]
     @fields [:featured, :title, :url, :image_url, :news_site, :summary, :published_at]
-
     @derive {Jason.Encoder, only: @fields ++ [:id, :events, :launches]}
 
     schema "articles" do
@@ -26,8 +26,11 @@ defmodule Spaceflightnewsapi.Article do
     def changeset(struct \\ %__MODULE__{}, params) do
         struct
         |> cast(put_change(params), @fields)
-        |> cast_assoc(:events) #TODO
-        |> cast_assoc(:launches) #TODO
+        |> validate_required(@required)
+        |> validate_length(:title, min: 6)
+        |> validate_length(:summary, min: 10)
+        |> cast_assoc(:events)
+        |> cast_assoc(:launches)
     end
 
     defp put_change(params) do
