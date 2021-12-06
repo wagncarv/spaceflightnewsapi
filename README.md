@@ -40,6 +40,7 @@ Em `config\dev.ex` inserir os dados de:
 `mix phx.server`
 
 ## 🧑‍💻 🛠 Tecnologias utilizadas
+- Biblioteca Scrivener_ecto 2.0
 - Elixir 1.12.3
 - Erlang 24
 - Framework Phoenix v1.6.2
