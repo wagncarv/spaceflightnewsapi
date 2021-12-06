@@ -1,5 +1,5 @@
 # Space Flight News API
-> This is a challenge by Coodesh
+> This is a challenge by [Coodesh](https://coodesh.com/)
 
 O projeto `Space Flight News` é uma API que utiliza dados obtidos da API pública `api.spaceflightnewsapi` para executar operações como exibir, remover, atualizar e gravar novos dados, também conhecidas por CRUD.
 
@@ -10,7 +10,7 @@ Para executar o projeto, precisa-se que tenha instalado:
 - Elixir 1.12 ou acima
 - Framework Phoenix v1.6.2
 
-### 🔧 Instalação
+### 🔧 Instalação do projeto
 - Baixar o projeto do Github:
 `
     git clone https://github.com/wagncarv/spaceflightnewsapi
@@ -21,172 +21,114 @@ Dentro da pasta do projeto executar:
     mix deps.get
 `
 - Configurar o banco de dados:
-Em `config\dev.ex` inserir os dados de
-`
-  username: "username",
-  password: "password",
-  database: "database_name",
-  hostname: "localhost",
-`
-Após a configuração, na pasta do projeto, executar o comando:
-`
-    mix ecto.setup
-`
-## ⚙️ Executando os testes
+Em `config\dev.ex` inserir os dados de:
+#### Configuração
+- username: "username",
+- password: "password",
+- database: "database_name",
+- hostname: "localhost"
 
-Explicar como executar os testes automatizados para este sistema.
+- Após a configuração, na pasta do projeto, executar o comando:
+`mix ecto.setup`
 
-### 🔩 Analise os testes de ponta a ponta
+- Iniciar modo interativo do Elixir:
+`iex -S mix`
+- Para popular o banco de dados, no modo interativo (#iex#) do Elixir, executar:
+`Spaceflightnewsapi.Routines.Routine.load_data()`
 
-Explique que eles verificam esses testes e porquê.
+- Para executar o projeto, inserir o comando
+`mix phx.server`
 
-```
-Dar exemplos
-```
-
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-## 📦 Desenvolvimento
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
-
-## 🛠️ Construído com
-
-Mencione as ferramentas que você usou para criar seu projeto
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
-
-## 🖇️ Colaborando
-
-Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoSobreContribuicoes) para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
-
-## 📌 Versão
-
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
-
-## ✒️ Autores
-
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
-
-## 📄 Licença
-
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
-
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢
-* Convide alguém da equipe para uma cerveja 🍺 
-* Obrigado publicamente 🤓.
-* etc.
-
-
----
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
-O projeto `Space Flight News` é uma API que utiliza dados obtidos da API pública `api.spaceflightnewsapi` para executar operações como exibir, remover, atualizar e gravar novos dados, também conhecidas por CRUD.
-
-### 📋 Pré-requisitos
-Para executar o projeto, precisa-se que tenha instalado:
-
-- Erlang 24 ou acima
-- Elixir 1.12 ou acima
+## 🧑‍💻 🛠 Tecnologias utilizadas
+- Elixir 1.12.3
+- Erlang 24
 - Framework Phoenix v1.6.2
+- Postgres 12.9
+- Postman
+- Plugin Rest client v0.24.6
+- Visual Studio Code
 
-### 🔧 Instalação
-- Baixar o projeto do Github:
-`
-    git clone https://github.com/wagncarv/spaceflightnewsapi
-`
-- Baixar as dependências:
-Dentro da pasta do projeto executar:
-`
-    mix deps.get
-`
-- Configurar o banco de dados:
-Em `config\dev.ex` inserir os dados de
-`
-  username: "username",
-  password: "password",
-  database: "database_name",
-  hostname: "localhost",
-`
-Após a configuração, na pasta do projeto, executar o comando:
-`
-    mix ecto.setup
-`
-## ⚙️ Executando os testes
+## 🌐 Requisições à API
+GET http://localhost:4000/api/
+
+###
+
+GET http://localhost:4000/api/articles
+
+###
+
+GET http://localhost:4000/api/articles/14
+
+###
+
+DELETE http://localhost:4000/api/articles/15
+
+###
+
+PUT http://localhost:4000/api/articles/14
+content-type: application/json
+json ```
+{
+  "featured": true,
+  "title": "Novo titulo",
+  "url": "http://www.url.com.br",
+  "image_url": "http://www.url.com.br/images/icon.png",
+  "news_site": "http://www.url.com.br",
+  "summary": "Nova mensagem",
+  "published_at": "2021-12-04T22:56:18Z",
+  "events": [
+    {
+      "id": 1,
+      "provider": "event provider"
+    }
+  ],
+  "launches": [
+    {
+      "id": 1,
+      "provider": "launch provider"
+    }
+  ]
+}```
+
+
+###
+
+POST http://localhost:4000/api/articles
+content-type: application/json
+json ```
+{
+  "featured": true,
+  "title": "Title",
+  "url": "http://www.url.com.br",
+  "image_url": "http://www.url.com.br/images/icon.png",
+  "news_site": "http://www.url.com.br",
+  "summary": "Nova mensagem",
+  "published_at": "2021-12-04T22:56:18Z",
+  "events": [
+    {
+      "id": 1,
+      "provider": "event provider"
+    }
+  ],
+  "launches": [
+    {
+      "id": 1,
+      "provider": "launch provider"
+    }
+  ]
+}``` 
+## ⚙️🔩  Executando os testes
 
 Explicar como executar os testes automatizados para este sistema.
 
-### 🔩 Analise os testes de ponta a ponta
+### Link de apresentação do projeto
 
-Explique que eles verificam esses testes e porquê.
+## ✒️ Autor
 
-```
-Dar exemplos
-```
+* **Desenvolvedor** [Wagner Patrick de Carvalho](https://github.com/wagncarv)
 
-### ⌨️ E testes de estilo de codificação
+### 🎁 Expressão de gratidão
+Agradecimento à Coodesh por esta oportunidade de participar deste processo de seleção. 📢
+> This is a challenge by [Coodesh](https://coodesh.com/)
 
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-## 📦 Desenvolvimento
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
-
-## 🛠️ Construído com
-
-Mencione as ferramentas que você usou para criar seu projeto
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
-
-## 🖇️ Colaborando
-
-Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoSobreContribuicoes) para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
-
-## 📌 Versão
-
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
-
-## ✒️ Autores
-
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
-
-## 📄 Licença
-
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
-
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢
-* Convide alguém da equipe para uma cerveja 🍺 
-* Obrigado publicamente 🤓.
-* etc.
-> This is a challenge by Coodesh
-
-
----
 ⌨️ Por [Wagner Patrick de Carvalho](https://github.com/wagncarv) 😊
