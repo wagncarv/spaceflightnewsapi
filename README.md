@@ -41,6 +41,7 @@ Em `config\dev.ex` inserir os dados de:
 
 ## 🧑‍💻 🛠 Tecnologias utilizadas
 - Biblioteca Scrivener_ecto 2.0
+- Ecto 3.7.1
 - Elixir 1.12.3
 - Erlang 24
 - Framework Phoenix v1.6.2
@@ -48,6 +49,15 @@ Em `config\dev.ex` inserir os dados de:
 - Postman
 - Plugin Rest client v0.24.6
 - Visual Studio Code
+
+## 📋 Documentações das tecnologias utilizadas
+- Ecto: <https://hexdocs.pm/ecto/Ecto.html>
+- Elixir: <https://hexdocs.pm/elixir/Kernel.html>
+- Erlang: <https://www.erlang.org/>
+- Phoenix: <https://www.phoenixframework.org/>
+- Postgres: <https://www.postgresql.org/>
+- Postman: <https://www.postman.com/>
+- Scrivener ecto: <https://hexdocs.pm/scrivener_ecto/readme.html>
 
 ## 🌐 Requisições à API
 GET http://localhost:4000/api/

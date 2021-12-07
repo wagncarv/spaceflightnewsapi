@@ -11,9 +11,6 @@ defmodule SpaceflightnewsapiWeb.ArticlesControllerTest  do
             |> post(Routes.articles_path(conn, :create, params))
             |> json_response(:created)
             assert %{
-                "article" => %{
-                    "id" => _id
-                },
                 "message" => "Article created"
             } = response
         end
@@ -55,11 +52,11 @@ defmodule SpaceflightnewsapiWeb.ArticlesControllerTest  do
         end
     end
 
-    describe "show_all/1" do
+    describe "index/2" do
         test "Show all articles", %{conn: conn} do
             response =
             conn
-            |> get(Routes.articles_path(conn, :show_all))
+            |> get(Routes.articles_path(conn, :index))
             |> json_response(:ok)
 
             assert %{"articles" => []} = response
