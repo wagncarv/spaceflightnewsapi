@@ -1,7 +1,7 @@
 defmodule SpaceflightnewsapiWeb.ArticlesController  do
     use SpaceflightnewsapiWeb, :controller
 
-    alias Spaceflightnewsapi.{Article, Repo}
+    alias Spaceflightnewsapi.Article
     alias SpaceflightnewsapiWeb.FallbackController
 
     action_fallback FallbackController
@@ -30,15 +30,7 @@ defmodule SpaceflightnewsapiWeb.ArticlesController  do
         end
     end
 
-    # def show_all(conn, _params) do
-    #     with {:ok, articles} <- Spaceflightnewsapi.show_all() do
-    #         conn
-    #         |> put_status(:ok)
-    #         |> render("articles.json", articles: articles)
-    #     end
-    # end
-
-    def show_all(conn, params) do
+    def index(conn, params) do
         with {:ok, articles} <- Spaceflightnewsapi.show_all(params) do
             conn
             |> put_status(:ok)

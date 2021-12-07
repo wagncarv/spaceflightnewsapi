@@ -4,7 +4,7 @@ defmodule Spaceflightnewsapi.Launch do
 
     alias Spaceflightnewsapi.Article
 
-    @fields [:provider, :article_id]
+    @fields [:id, :provider, :article_id]
     @derive {Jason.Encoder, only: [:id, :provider]}
 
     schema "launches" do

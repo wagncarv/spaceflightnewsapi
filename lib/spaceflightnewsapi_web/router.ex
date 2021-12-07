@@ -14,7 +14,7 @@ defmodule SpaceflightnewsapiWeb.Router do
 
     post "/articles", ArticlesController, :create
     get "/articles/:id", ArticlesController, :show
-    get "/articles", ArticlesController, :show_all
+    get "/articles", ArticlesController, :index
     delete "/articles/:id", ArticlesController, :delete
     put "/articles/:id", ArticlesController, :update
   end
