@@ -6,7 +6,7 @@ defmodule Spaceflightnewsapi.Article do
 
     @required [:title, :summary]
     @fields [:featured, :title, :url, :image_url, :news_site, :summary, :published_at]
-    @derive {Jason.Encoder, only: @fields ++ [:events, :launches]}
+    @derive {Jason.Encoder, only: @fields ++ [:id, :events, :launches]}
 
     schema "articles" do
         field :featured, :boolean
